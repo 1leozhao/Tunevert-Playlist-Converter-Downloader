@@ -17,7 +17,7 @@ app.secret_key = "dingtone"
 
 #SPOTIFY OAUTH CREDS
 SPOTIFY_CLIENT_ID = "18b2aa38f6804350aecec03a75ee8af5"
-SPOTIFY_CLIENT_SECRET = "608297bdf55d40ec8cd1d94faa8e4c4f"
+SPOTIFY_CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
 SPOTIFY_REDIRECT_URI = "http://localhost:5000/callback-spotify"
 SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
 SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
@@ -25,7 +25,7 @@ SPOTIFY_API_BASE_URL = "https://api.spotify.com/v1/"
 
 #GOOGLE OAUTH CREDS
 GOOGLE_CLIENT_ID = "515386421135-uqp27sgordktlfe65fi0t290vq8r9vcj.apps.googleusercontent.com"
-GOOGLE_CLIENT_SECRET = "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"
+GOOGLE_CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
 GOOGLE_REDIRECT_URI = "http://localhost:5000/callback-google"
 GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/auth"
 GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token"
