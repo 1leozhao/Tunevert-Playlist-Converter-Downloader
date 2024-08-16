@@ -16,17 +16,17 @@ app = Flask(__name__)
 app.secret_key = "dingtone"
 
 #SPOTIFY OAUTH CREDS
-SPOTIFY_CLIENT_ID = "18b2aa38f6804350aecec03a75ee8af5"
+SPOTIFY_CLIENT_ID = os.getenv('SPOTIFY_CLIENT_ID')
 SPOTIFY_CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
-SPOTIFY_REDIRECT_URI = "http://localhost:5000/callback-spotify"
+SPOTIFY_REDIRECT_URI = os.getenv('SPOTIFY_REDIRECT_URI')
 SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
 SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
 SPOTIFY_API_BASE_URL = "https://api.spotify.com/v1/"
 
 #GOOGLE OAUTH CREDS
-GOOGLE_CLIENT_ID = "515386421135-uqp27sgordktlfe65fi0t290vq8r9vcj.apps.googleusercontent.com"
+GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
 GOOGLE_CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
-GOOGLE_REDIRECT_URI = "http://localhost:5000/callback-google"
+GOOGLE_REDIRECT_URI = os.getenv('GOOGLE_REDIRECT_URI')
 GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/auth"
 GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token"
 SCOPES = [
