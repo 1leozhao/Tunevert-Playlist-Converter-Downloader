@@ -18,7 +18,7 @@ app.secret_key = "dingtone"
 #SPOTIFY OAUTH CREDS
 SPOTIFY_CLIENT_ID = "18b2aa38f6804350aecec03a75ee8af5"
 SPOTIFY_CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
-SPOTIFY_REDIRECT_URI = os.getenv('SPOTIFY_REDIRECT_URI')
+SPOTIFY_REDIRECT_URI = "http://localhost:5000/callback-spotify"
 SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
 SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
 SPOTIFY_API_BASE_URL = "https://api.spotify.com/v1/"
