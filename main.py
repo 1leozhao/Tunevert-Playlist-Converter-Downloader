@@ -499,18 +499,12 @@ def copy_youtube_to_spotify(playlist_id, playlist_name):
 # Download playlists to device
 @app.route("/download-playlist/<playlist_id>/<playlist_name>")
 def download_playlist(playlist_id, playlist_name):
-    headers = check_session_and_get_headers
-    # Ensure the user is logged in
-    if 'credentials' not in session:
-        return redirect(url_for('login'))  # Redirect to login if not signed in
+    redirect_response, headers = check_session_and_get_headers()
+    if redirect_response:
+        return redirect_response
 
-    # Load the user's credentials from the session
-    creds = Credentials(**session['credentials'])
-    
-    # Build the YouTube service with the user's credentials
-    youtube = build('youtube', 'v3', credentials=creds)
+    youtube = get_youtube_service()
 
-    # Fetch Spotify tracks
     response = requests.get(f"{SPOTIFY_API_BASE_URL}playlists/{playlist_id}/tracks", headers=headers)
     if response.status_code != 200:
         return f"Error: Unable to fetch tracks. Status code: {response.status_code}"
@@ -720,5 +714,5 @@ def youtube_request_with_backoff(request, max_retries=5):
                 raise
     
 if __name__ == "__main__":
-    os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+    os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '0'
     app.run(host = "0.0.0.0", debug = True)
